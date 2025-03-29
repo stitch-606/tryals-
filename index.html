@@ -4,57 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DVR UI</title>
-    <link rel="stylysheet" href="./style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <!-- Sidebar -->
     <div class="sidebar">
-        <h2>DVR</h2>
-        <div class="storage">
-            <p><strong>37%</strong> Full</p>
-            <div class="progress-bar"><div class="fill"></div></div>
+        <div class="sidebar-header">
+            <h2>DVR</h2>
+            <div class="storage">
+                <p><strong>37%</strong> Full</p>
+                <div class="progress-bar"><div class="fill"></div></div>
+            </div>
         </div>
-        <ul>
-            <li class="active">All Recordings</li>
-            <li>Series Manager</li>
-            <li>Scheduled List</li>
-            <li>Clean-Up My DVR</li>
-        </ul>
+        <div class="sidebar-content">
+            <ul>
+                <li class="active">All Recordings</li>
+                <li>Series Manager</li>
+                <li>Scheduled List</li>
+                <li>Clean-Up My DVR</li>
+            </ul>
+        </div>
     </div>
-
-    <!-- Main Content (Only this part scrolls) -->
     <div class="content">
-        <div class="options">⚙ Options</div>
-        <div class="grid" id="recordingsGrid"></div>
+        <div class="options">⚙  :Options</div>
+        <div class="grid" id="recordingsGrid">
+            <div class="show" data-title="Harry Potter" data-duration="2h 30m" data-channel="assets/channel-logo.png" data-description="A young wizard embarks on an adventure to defeat the dark lord.">
+                <img src="assets/Harry-Potter-Movies-in-Order.avif" alt="Harry Potter" loading="lazy">
+            </div>
+            <div class="show" data-title="Euphoria" data-duration="1h" data-channel="assets/channel-logo.png" data-description="A group of high school students navigate love, drugs, and identity." data-episodes="3">
+                <img src="assets/euphoria.jpg" alt="Euphoria" loading="lazy">
+            </div>
+            <div class="show" data-title="Friends" data-duration="30m" data-channel="assets/channel-logo.png" data-description="Six friends navigate life and relationships in New York City." data-episodes="12">
+                <img src="assets/friends-400x275.jpg" alt="Friends" loading="lazy">
+            </div>
+            <div class="show" data-title="Billions" data-duration="1h" data-channel="assets/channel-logo.png" data-description="A high-stakes drama about power and finance in New York." data-episodes="5">
+                <img src="assets/p10639351_b_h11_ab.jpg" alt="Billions" loading="lazy">
+            </div>
+            <div class="show" data-title="Law & Order" data-duration="1h" data-channel="assets/channel-logo.png" data-description="A procedural drama following detectives and prosecutors." data-episodes="8">
+                <img src="assets/p183983_b_h8_bm.jpg" alt="Law & Order" loading="lazy">
+            </div>
+            <div class="show" data-title="Conan" data-duration="1h 30m" data-channel="assets/channel-logo.png" data-description="A legendary warrior embarks on epic adventures.">
+                <img src="assets/conan-27th-film-character-poster.jpg" alt="Conan" loading="lazy">
+            </div>
+            <div class="show" data-title="Summer House" data-duration="45m" data-channel="assets/channel-logo.png" data-description="A group of friends share a summer house and their lives." data-episodes="6">
+                <img src="assets/editors-task-retitled_-summer-house-season-8_-news-release-date-cast-trailer-everything-we-know.avif" alt="Summer House" loading="lazy">
+            </div>
+            <div class="show" data-title="Nobody" data-duration="1h 30m" data-channel="assets/channel-logo.png" data-description="An ordinary man turns into a vigilante to protect his family.">
+                <img src="assets/maxresdefault.jpg" alt="Nobody" loading="lazy">
+            </div>
+            <div class="show" data-title="Sweet Mud" data-duration="2h 28m" data-channel="assets/channel-logo.png" data-description="A coming-of-age story set in a rural community.">
+                <img src="assets/AAAABaySz8DGTDotpFb1cZUC1eTkIGDIsCbY9hXjf99i0lZ3rlTEr4O-t4NPB5weMtl1B0MjKEdQ_OJ1RfAcWFw0Z95F_U3q36CPNQ2U.jpg" alt="Sweet Mud" loading="lazy">
+            </div>
+            <div class="show" data-title="Love & Dance" data-duration="47m" data-channel="assets/channel-logo.png" data-description="A romantic drama centered around dance and passion.">
+                <img src="assets/AAAABUK13u81zUC1AaMn6JJZyKoiX72PjGdMa6uowUo3-YpoVjHuZdAzaOqnKaTRawmHLl-LjT7PUjC4jgLeo9TV0Qqt9tEwNSc7iTZX.jpg" alt="Love & Dance" loading="lazy">
+            </div>
+            <div class="show" data-title="Image of Victory" data-duration="50m" data-channel="assets/channel-logo.png" data-description="A historical drama about courage and sacrifice.">
+                <img src="assets/AAAABVrgFNFraFvfcxDG5JwkZR_pKjH2GQhdqZBtl-89KGiKQBxqvZIIU5auZeeP3RvHP4tLlBblZQOPiPjik00cEDhLjBOyZ5e9FRNu.jpg" alt="Image of Victory" loading="lazy">
+            </div>
+            <div class="show" data-title="1917" data-duration="22m" data-channel="assets/channel-logo.png" data-description="A gripping World War I story of bravery and survival.">
+                <img src="assets/1917_(2019)_Film_Poster.jpeg" alt="1917" loading="lazy">
+            </div>
+        </div>
+        <div class="show-info">
+            <h3 id="showTitle">Show Title</h3>
+            <p id="showDescription">Description</p>
+            <p id="showEpisodes" style="display: none;">Episodes</p>
+            <img src="" alt="Channel Logo" id="channelLogo">
+        </div>
     </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const recordings = [
-                { title: "Harry Potter", image: "harry.jpg" },
-                { title: "Euphoria", image: "euphoria.jpg" },
-                { title: "Friends", image: "friends.jpg" },
-                { title: "Billions", image: "billions.jpg" },
-                { title: "Law & Order", image: "law-order.jpg" },
-                { title: "Conan", image: "conan.jpg" },
-                { title: "Summer House", image: "summer-house.jpg" },
-                { title: "Nobody", image: "nobody.jpg" }
-            ];
-
-            const grid = document.getElementById("recordingsGrid");
-
-            recordings.forEach(show => {
-                const div = document.createElement("div");
-                div.classList.add("show");
-                div.innerHTML = `
-                    <img src="${show.image}" alt="${show.title}">
-                    <p>${show.title}</p>
-                `;
-                grid.appendChild(div);
-            });
-        });
-    </script>
-
+    <script src="script.js"></script>
 </body>
 </html>
