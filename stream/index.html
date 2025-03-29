@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DVR UI</title>
+    <link rel="stylysheet" href="./style.css">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>DVR</h2>
+        <div class="storage">
+            <p><strong>37%</strong> Full</p>
+            <div class="progress-bar"><div class="fill"></div></div>
+        </div>
+        <ul>
+            <li class="active">All Recordings</li>
+            <li>Series Manager</li>
+            <li>Scheduled List</li>
+            <li>Clean-Up My DVR</li>
+        </ul>
+    </div>
+
+    <!-- Main Content (Only this part scrolls) -->
+    <div class="content">
+        <div class="options">⚙ Options</div>
+        <div class="grid" id="recordingsGrid"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const recordings = [
+                { title: "Harry Potter", image: "harry.jpg" },
+                { title: "Euphoria", image: "euphoria.jpg" },
+                { title: "Friends", image: "friends.jpg" },
+                { title: "Billions", image: "billions.jpg" },
+                { title: "Law & Order", image: "law-order.jpg" },
+                { title: "Conan", image: "conan.jpg" },
+                { title: "Summer House", image: "summer-house.jpg" },
+                { title: "Nobody", image: "nobody.jpg" }
+            ];
+
+            const grid = document.getElementById("recordingsGrid");
+
+            recordings.forEach(show => {
+                const div = document.createElement("div");
+                div.classList.add("show");
+                div.innerHTML = `
+                    <img src="${show.image}" alt="${show.title}">
+                    <p>${show.title}</p>
+                `;
+                grid.appendChild(div);
+            });
+        });
+    </script>
+
+</body>
+</html>
