@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <div class="show" data-title="Harry Potter" data-duration="2h 30m" data-channel="assets/channel-logo.png" data-description="A young wizard embarks on an adventure to defeat the dark lord." data-episodes="">
                         <img src="assets/Harry-Potter-Movies-in-Order.avif" alt="Harry Potter">
                     </div>
-                    <div class="show" data-title="Euphoria" data-duration="1h" data-channel="assets/channel-logo.png" data-description="A group of high school students navigate love, friendship, and trauma." data-episodes="3">
+                    <div class="show" data-title="Euphoria" data-duration="1h" data-channel="assets/paramount-channel-latin-america-logo-180D249ED9-seeklogo.com.png" data-description="A group of high school students navigate love, friendship, and trauma." data-episodes="3">
                         <img src="assets/euphoria.jpg" alt="Euphoria">
                     </div>
                     <div class="show" data-title="Friends" data-duration="30m" data-channel="assets/channel-logo.png" data-description="Six friends living in New York City experience life and love together." data-episodes="12">
